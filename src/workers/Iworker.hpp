@@ -1,16 +1,9 @@
 #pragma once
 
+#include "testMatrix.hpp"
 #include <ostream>
 #include <vector>
 #include <future>
-#include <fstream>
-
-struct Matrix {
-    std::vector<int> data;
-    unsigned width, height;
-    Matrix Transpose() const;
-};
-std::ostream& operator<<(std::ostream& out, const Matrix& matrix);
 
 class WorkerInterface {
 public:
@@ -23,5 +16,6 @@ public:
 
     virtual ~WorkerInterface() = default;
     virtual std::future<Matrix> AsyncProcess(Matrix& matrix) = 0;
+    virtual std::future<Matrix> AsyncParallelProcess(Matrix& matrix) = 0;
 };
 
