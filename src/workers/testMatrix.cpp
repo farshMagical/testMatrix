@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <future>
+#include <algorithm>
 
 Matrix Matrix::Transpose() const{
     Matrix matrix = CopySizeToTranspose();
@@ -10,7 +11,6 @@ Matrix Matrix::Transpose() const{
             matrix.data[col * matrix.width + raw] = data[raw*width + col];
         }
     }
-    std::cout << "!" << std::endl;
     return matrix;
 }
 
@@ -62,4 +62,10 @@ void Matrix::WriteTransposePart(Matrix& mtx, const size_t startPosRaw, const siz
             mtx.data[col * mtx.width + raw] = data[raw*width + col];
         }
     }
+}
+
+bool operator==(const Matrix& lhs, const Matrix& rhs){
+    return std::equal(lhs.data.begin(), lhs.data.end(), rhs.data.begin())
+        && lhs.height==rhs.height 
+        && lhs.width==rhs.width;
 }

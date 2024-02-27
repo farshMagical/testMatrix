@@ -17,4 +17,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& out, const Matrix& matrix);
+bool operator==(const Matrix& lhs, const Matrix& rhs);
 
