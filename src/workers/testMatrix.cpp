@@ -52,7 +52,7 @@ Matrix Matrix::CopySizeToTranspose() const{
     Matrix matrix;
     matrix.height = width;
     matrix.width = height;
-    matrix.data.reserve(data.size());
+    matrix.data.resize(data.size());
     return matrix;
 }
 

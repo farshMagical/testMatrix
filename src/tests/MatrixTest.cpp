@@ -36,12 +36,36 @@ TEST(MatrixTranspose, ValidTest_BoundaryCases) {
         .width = 3,
         .height = 1
     };
-
+    Matrix wrongFin1 {
+        .data = {
+            1,1,3
+        },
+        .width = 3,
+        .height = 1
+    };
+    Matrix wrongFin2 {
+        .data = {
+            1,2,3
+        },
+        .width = 2,
+        .height = 1
+    };
+    Matrix wrongFin3 {
+        .data = {
+            1,2
+        },
+        .width = 2,
+        .height = 1
+    };
     EXPECT_EQ(orig1.ParallelTranspose(), fin1);
     EXPECT_EQ(orig1.Transpose(), fin1);
 
     EXPECT_EQ(fin1.ParallelTranspose(), orig1);
     EXPECT_EQ(fin1.Transpose(), orig1);
+
+    EXPECT_NE(orig1.Transpose(), wrongFin1);
+    EXPECT_NE(orig1.Transpose(), wrongFin2);
+    EXPECT_NE(orig1.Transpose(), wrongFin3);
 }
 
 TEST(MatrixTranspose, ValidTest) {
