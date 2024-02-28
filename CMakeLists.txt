@@ -18,7 +18,8 @@ include_directories(src
 
 set(SRC_TESTS src/tests/MatrixTest.cpp
     src/tests/sThreadWorkerTest.cpp
-    src/tests/mThreadWorkerTest.cpp)
+    src/tests/mThreadWorkerTest.cpp
+    src/tests/workerTimeTest.cpp)
 
 set(SRC src/main.cpp
     src/workers/sThreadWorker.cpp
