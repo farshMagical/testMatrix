@@ -16,12 +16,11 @@ include_directories(src
     src/workers
     src/workers/threadPool)
 
-set(SRC_TESTS src/tests/sThreadWorkerTest.cpp
-    src/tests/MatrixTest.cpp)
+set(SRC_TESTS src/tests/MatrixTest.cpp
+    src/tests/sThreadWorkerTest.cpp
+    src/tests/mThreadWorkerTest.cpp)
 
 set(SRC src/main.cpp
-    src/workers/threadPool/threadQueue.cpp
-    src/workers/threadPool/threadPool.cpp
     src/workers/sThreadWorker.cpp
     src/workers/mThreadWorker.cpp
     src/workers/testMatrix.cpp
