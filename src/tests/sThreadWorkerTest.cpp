@@ -1,7 +1,7 @@
 #include "factoryWorker.hpp"
 #include <gtest/gtest.h>
 
-TEST(singleThreadWorker, ValidTest_BoundaryCases) {
+TEST(asyncThreadWorker, ValidTest_BoundaryCases) {
     auto worker = get_new_worker(WorkerType::sThread);
     Matrix orig {
         .data = {
@@ -44,7 +44,7 @@ TEST(singleThreadWorker, ValidTest_BoundaryCases) {
     EXPECT_EQ(worker->AsyncParallelProcess(fin1).get(), orig1);
 }
 
-TEST(singleThreadWorker, ValidTest) {
+TEST(asyncThreadWorker, ValidTest) {
     auto worker = get_new_worker(WorkerType::sThread);
     Matrix orig = Matrix {
         .data = {
